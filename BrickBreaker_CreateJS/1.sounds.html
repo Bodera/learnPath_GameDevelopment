@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Lorem DROP IT</title>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script>
+
+		createjs.Sound.alternateExtensions = ["mp3"];
+		function loadSound()
+		{
+			createjs.Sound.registerSound("./assets/bala.mp3", "MP5");
+		}
+		function playSound()
+		{
+			createjs.Sound.play("MP5");
+		}
+	</script>
+</head>
+<body onload="loadSound();">
+	<button onclick="playSound();">Play sound</button>
+</body>
+</html>

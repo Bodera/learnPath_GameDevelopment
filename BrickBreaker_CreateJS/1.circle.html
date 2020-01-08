@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Lorem Title</title>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+</head>
+<body onload="init();">
+	<canvas id="testCanvas" width="500" height="500"></canvas>
+	<script>
+		function init()
+		{
+			var stage = new createjs.Stage("testCanvas");
+			var circle = new createjs.Shape();
+			circle.graphics.beginFill("Red").drawCircle(0,0, 90);
+			circle.x = circle.y = 250;
+			stage.addChild(circle);
+			stage.update();
+		}
+	</script>
+</body>
+</html>

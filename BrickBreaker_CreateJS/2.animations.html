@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Lorem superb</title>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+</head>
+<body onload="init();">
+	<canvas id="demoCanvas" width="500" height="500"></canvas>
+
+	<script>
+  // constantes
+  const PADDLE_WIDTH = 100;
+  const PADDLE_HEIGHT = 20;
+  const BRICK_WIDTH = 60;
+  const BRICK_HEIGHT = 30;
+  //variaveis
+  var stage;
+  var paddle;
+  var ball;
+
+		function init(){
+	    stage = new createjs.Stage("demoCanvas");
+      createjs.Ticker.setFPS(60);
+      createjs.Ticker.addEventListener("tick", stage);
+      createBrick();
+      createBall();
+      createPaddle();
+		}
+
+    function createBrick(){
+      var brick = new createjs.Shape();
+      brick.graphics.beginFill('#DB7093');
+      brick.graphics.drawRect(0, 0, BRICK_WIDTH, BRICK_HEIGHT);
+      brick.graphics.endFill();
+      stage.addChild(brick);
+
+			brick.regX = BRICK_WIDTH/2;
+			brick.regY = BRICK_HEIGHT/2;
+
+			brick.x=50;
+			brick.y=50;
+
+      destroyBrick(brick);
+    }
+
+    function destroyBrick(brick){
+      createjs.Tween.get(brick,{}).to({scaleX:0, scaleY:0}, 500)
+    }
+
+    function createBall(){
+      ball = new createjs.Shape();
+      ball.graphics.beginFill('#D3D3D3').drawCircle(0,0,8);
+      ball.x = 100;
+      ball.y = 100;
+      stage.addChild(ball);
+    }
+
+    function createPaddle(){
+      paddle = new createjs.Shape();
+      paddle.graphics.beginFill('#00CED1')
+      .drawRect(0,0, PADDLE_WIDTH, PADDLE_HEIGHT);
+      paddle.y = 200;
+      stage.addChild(paddle);
+    }
+
+	</script>
+</body>
+</html>

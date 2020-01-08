@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Lorem meu amigo</title>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+</head>
+<body onload="init();">
+	<canvas id="testCanvas" width="500" height="500"></canvas>
+	<script>
+		function init()
+		{
+			var stage = new createjs.Stage("testCanvas");
+			var circle = new createjs.Shape();
+			circle.graphics.beginFill("Red").drawCircle(0,0, 90);
+			circle.x = circle.y = 250;
+			stage.addChild(circle);
+			createjs.Ticker.setFPS(60);
+      createjs.Ticker.addEventListener("tick", stage);
+
+      //Creating the tween and adding parameters and .to calls
+
+      createjs.Tween.get(circle, {loop:true}).to({alpha:0, x:400}, 5000,
+        createjs.Ease.elasticIn)
+        .to({alpha:1, x:100}, 1500, createjs.Ease.elasticInOut);
+		}
+	</script>
+</body>
+</html>
